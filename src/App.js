@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
 import { parse } from 'date-fns'
-import { blue, orange } from "@mui/material/colors"
 import { getMonth } from 'date-fns'
-import {
-  Grid, Box, Stack, InputLabel, MenuItem, FormControl, Select,
-  Typography
-} from "@mui/material"
 import {LocalizationProvider} from "@mui/lab"
 import DateAdapter from '@mui/lab/AdapterDateFns'
-import {createTheme, styled, ThemeProvider, useTheme} from "@mui/material/styles"
+import { blue, orange } from "@mui/material/colors"
+import {
+  createTheme, ThemeProvider, useTheme
+} from "@mui/material/styles"
+import {
+  Grid, Box, Stack, InputLabel, MenuItem, FormControl, Select
+} from "@mui/material"
 import Scheduler from "react-mui-scheduler"
 import './index.css'
 
@@ -91,6 +92,7 @@ function App() {
   const [selectedDay, setSelectedDay] = useState()
   const [mode, setMode] = useState('month')
   const [weekStart, setWeekStart] = useState('mon')
+  const [legacyStyle, setLegacyStyle] = useState(false)
   const [locale, setLocale] = useState(
     localStorage.getItem('i18nextLng') || 'en'
   )
@@ -173,6 +175,18 @@ function App() {
             >
               <Stack direction="row" sx={{ mb: 1, justifyContent: 'flex-end' }}>
                 <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
+                  <InputLabel id="legacyStyle-select">Legacy style</InputLabel>
+                  <Select
+                    value={legacyStyle}
+                    label="legacyStyle"
+                    id="legacyStyle-select"
+                    labelId="legacyStyle-select"
+                    onChange={(event) => setLegacyStyle(event.target.value === 'true')}
+                  >
+                    {['true', 'false'].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
+                  </Select>
+                </FormControl>
+                <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
                   <InputLabel id="week-start-select">Week start</InputLabel>
                   <Select
                     value={weekStart}
@@ -224,7 +238,7 @@ function App() {
               {<Scheduler
                 locale={locale}
                 events={events}
-                legacyStyle={false}
+                legacyStyle={legacyStyle}
                 options={state?.options}
                 alertProps={state?.alertProps}
                 toolbarProps={state?.toolbarProps}
