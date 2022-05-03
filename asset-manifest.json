@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react-mui-scheduler/static/css/main.31d6cfe0.css",
-    "main.js": "/react-mui-scheduler/static/js/main.12c4c082.js",
-    "static/js/787.4f15d099.chunk.js": "/react-mui-scheduler/static/js/787.4f15d099.chunk.js",
-    "index.html": "/react-mui-scheduler/index.html",
-    "main.12c4c082.js.map": "/react-mui-scheduler/static/js/main.12c4c082.js.map",
-    "787.4f15d099.chunk.js.map": "/react-mui-scheduler/static/js/787.4f15d099.chunk.js.map"
+    "main.css": "/react-mui-scheduler-demo/static/css/main.31d6cfe0.css",
+    "main.js": "/react-mui-scheduler-demo/static/js/main.a95d3992.js",
+    "static/js/787.4f15d099.chunk.js": "/react-mui-scheduler-demo/static/js/787.4f15d099.chunk.js",
+    "index.html": "/react-mui-scheduler-demo/index.html",
+    "main.a95d3992.js.map": "/react-mui-scheduler-demo/static/js/main.a95d3992.js.map",
+    "787.4f15d099.chunk.js.map": "/react-mui-scheduler-demo/static/js/787.4f15d099.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.12c4c082.js"
+    "static/js/main.a95d3992.js"
   ]
 }
