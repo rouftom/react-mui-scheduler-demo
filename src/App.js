@@ -168,73 +168,77 @@ function App() {
             alignItems="stretch"
             justifyContent="center"
           >
-            {<Grid
-              item
-              xs={12} sm={10} md={10}
-              sx={{ display: 'block' }}
-            >
-              <Stack direction="row" sx={{ mb: 1, justifyContent: 'flex-end' }}>
-                <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
-                  <InputLabel id="legacyStyle-select">Legacy style</InputLabel>
-                  <Select
-                    value={legacyStyle}
-                    label="legacyStyle"
-                    id="legacyStyle-select"
-                    labelId="legacyStyle-select"
-                    onChange={(event) => setLegacyStyle(event.target.value === 'true')}
-                  >
-                    {['true', 'false'].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
-                  </Select>
-                </FormControl>
-                <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
-                  <InputLabel id="week-start-select">Week start</InputLabel>
-                  <Select
-                    value={weekStart}
-                    label="weekStart"
-                    id="week-start-select"
-                    labelId="week-start-select"
-                    onChange={(event) => {
-                      setWeekStart(event.target.value)
-                      state.options.startWeekOn = event.target.value
-                      setState({...state})
-                    }}
-                  >
-                    {['mon', 'sun'].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
-                  </Select>
-                </FormControl>
-                <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
-                  <InputLabel id="mode-select">Mode</InputLabel>
-                  <Select
-                    value={mode}
-                    label="Mode"
-                    id="mode-select"
-                    labelId="mode-select"
-                    onChange={(event) => {
-                      setMode(event.target.value)
-                      state.options.defaultMode = event.target.value
-                      setState({...state})
-                    }}
-                  >
-                    {[
-                      'day', 'week', 'month', 'timeline'
-                    ].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
-                  </Select>
-                </FormControl>
-                <FormControl sx={{ ml: 1, minWidth: 120 }} size="small">
-                  <InputLabel id="locale-select">Locale</InputLabel>
-                  <Select
-                    value={locale}
-                    label="Locale"
-                    id="locale-select"
-                    labelId="locale-select"
-                    onChange={(event) => { setLocale(event.target.value) }}
-                  >
-                    {[
-                      'ar', 'de', 'en', 'es', 'fr', 'ja', 'ko', 'zh'
-                    ].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
-                  </Select>
-                </FormControl>
-              </Stack>
+            {<Grid item xs={12} sm={10} md={10}>
+              <Grid container spacing={2} sx={{ mb: 2 }}>
+                <Grid item xs={6} sm>
+                  <FormControl size="small" fullWidth>
+                    <InputLabel id="legacyStyle-select">Legacy style</InputLabel>
+                    <Select
+                      value={legacyStyle}
+                      label="legacyStyle"
+                      id="legacyStyle-select"
+                      labelId="legacyStyle-select"
+                      onChange={(event) => setLegacyStyle(event.target.value === 'true')}
+                    >
+                      {['true', 'false'].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} sm>
+                  <FormControl size="small" fullWidth>
+                    <InputLabel id="week-start-select">Week start</InputLabel>
+                    <Select
+                      value={weekStart}
+                      label="weekStart"
+                      id="week-start-select"
+                      labelId="week-start-select"
+                      onChange={(event) => {
+                        setWeekStart(event.target.value)
+                        state.options.startWeekOn = event.target.value
+                        setState({...state})
+                      }}
+                    >
+                      {['mon', 'sun'].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} sm>
+                  <FormControl size="small" fullWidth>
+                    <InputLabel id="mode-select">Mode</InputLabel>
+                    <Select
+                      value={mode}
+                      label="Mode"
+                      id="mode-select"
+                      labelId="mode-select"
+                      onChange={(event) => {
+                        setMode(event.target.value)
+                        state.options.defaultMode = event.target.value
+                        setState({...state})
+                      }}
+                    >
+                      {[
+                        'day', 'week', 'month', 'timeline'
+                      ].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={6} sm>
+                  <FormControl size="small" fullWidth>
+                    <InputLabel id="locale-select">Locale</InputLabel>
+                    <Select
+                      value={locale}
+                      label="Locale"
+                      id="locale-select"
+                      labelId="locale-select"
+                      onChange={(event) => { setLocale(event.target.value) }}
+                    >
+                      {[
+                        'ar', 'de', 'en', 'es', 'fr', 'ja', 'ko', 'zh'
+                      ].map(l => <MenuItem key={l} value={l}>{l}</MenuItem>)}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
               {<Scheduler
                 locale={locale}
                 events={events}
